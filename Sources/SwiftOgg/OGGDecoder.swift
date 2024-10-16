@@ -15,9 +15,9 @@
  **/
 
 import Foundation
-import YbridOpus
-import YbridOgg
+import COgg
 import Copustools
+import Copus
 
 public class OGGDecoder {
 

@@ -91,3 +91,4 @@ iOSInjectionProject/
 
 # macOS Filesystem
 .DS_Store
+Package.resolved

@@ -15,9 +15,8 @@
  **/
 
 import Foundation
-
-import YbridOpus
-import YbridOgg
+import COgg
+import Opus
 
 // MARK: - OpusError
 internal enum OpusError: Error {

@@ -15,9 +15,13 @@
  **/
 
 import Foundation
+#if canImport(AudioToolbox)
 import AudioToolbox
-import YbridOpus
-import YbridOgg
+#else
+import CoreAudio
+#endif
+import COgg
+import Copus
 
 
 public class OGGEncoder {
@@ -159,10 +163,12 @@ public class OGGEncoder {
         assemblePages(flush: true)
     }
 
+    #if canImport(AudioToolbox)
     public func encode(pcm: AudioQueueBuffer) throws {
         let pcmData = pcm.mAudioData.assumingMemoryBound(to: Int16.self)
         try encode(pcm: pcmData, count: Int(pcm.mAudioDataByteSize))
     }
+    #endif
 
     public func encode(pcm: Data) throws {
         try pcm.withUnsafeBytes { (bytes: UnsafePointer<Int16>) in
